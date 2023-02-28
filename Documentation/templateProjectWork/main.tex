@@ -1,0 +1,86 @@
+\input{./preamble.tex}
+
+\newcommand*{\mytitle}{Name of project work} % Titel
+\newcommand*{\myinstitute}{Department Lippstadt 2} % Institut
+
+
+\newcommand*{\myauthor}{Name of student} % Autoren
+\newcommand*{\myreporttype}{Project Work} % Bericht-Typ
+\newcommand*{\mygraduation}{Bachelor of Engineering} % Vollständige Anschrift
+
+
+
+\newcommand*{\firstexaminer}{Prof. Dr. Stefan Henkler} % Ort
+\newcommand*{\secondexaminer}{xyz} % Ort
+\newcommand*{\mydate}{\today} % Datum
+
+
+% ============= Dokumentbeginn =============
+
+\begin{document}
+
+% Seiten ohne Kopf- und Fußzeile sowie Seitenzahl
+\pagestyle{empty}
+
+\include{01_titel}	% Einbinden der Titelseite
+\newpage 					% Um Seite nach der Titelseite einzubinden -> bei eigener Titelseite und nicht der Latex-Version erforderlich
+\thispagestyle{empty}
+\quad 
+\newpage
+\pagenumbering{Roman}
+ 
+\cleardoubleoddpage
+
+
+
+
+
+\tableofcontents			%Inhaltsverzeichnis
+
+
+%\chapter*{Abkürzungsverzeichnis}
+%	\begin{acronym}[4GDH]	% Zur Formatierung hier die längste Abkürzung des Verzeichnisses eintragen
+%		\acro{4GDH}{4th Generation District Heating} 	
+%	\end{acronym}
+
+\pagestyle{fancy}
+
+\input{cha/01Introduction}%link to chapters
+
+\input{cha/02Fundamentals}
+
+\input{cha/03RelatedWork}
+
+\input{cha/04Analysis}
+
+\input{cha/05DesignImplementation}
+
+\input{cha/06Evaluation}
+
+\input{cha/07SummaryOutlook}
+%Literaturverzeichnis
+\newpage
+\lhead{}
+\rhead{\leftmark}
+\addcontentsline{toc}{chapter}{References}
+
+\bibliography{References}
+\bibliographystyle{alpha}
+
+
+\listoffigures				%Verzeichnis aller Bilder
+\listoftables				%Verzeichnis aller Tabellen
+%list of definitions, ...
+
+\chapter*{Affidavit}
+I <your full name> herewith declare that I have composed the present paper and work by myself and without use of any other than the cited sources and aids. Sentences or parts of sentences quoted literally are marked as such; other references with regard to the statement and scope are indicated by full details of the publications concerned. The paper and work in the same or similar form has not been submitted to any examination body and has not been published. This paper was not yet, even in part, used in another examination or as a course performance.
+. ~\\
+Lippstadt,  \today\\[.6cm] %<city>, <date>
+Name of student\\ % signature
+\rule[0.5em]{20em}{0.5pt}
+
+\appendix
+
+\include{cha/08Appendix}
+
+\end{document}

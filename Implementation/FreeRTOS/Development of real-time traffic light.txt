@@ -1,0 +1,34 @@
+ARDUINO FreeRTOS (2 junction)
+
+1) 2 Tasks have been created:
+	Task 1= Vehicle Traffic Light
+	Task 2= Pedestrian Traffic Light
+
+2) Priority of Task by default:
+	Task 1 > Task 2
+
+3) Interrupt has been created.
+   FX interrupt : to change the priority of Tasks
+			After interrupt is triggered, priority Task 2 > Task 1.
+
+4)Task 1 is always be executing(Green vehicle & Red ped), Task 2 is suspended.
+  Task 2 will only be executing if and only if there is interrupt to go to ready state(Yellow vehicle) n then allow pedestrian cross(Red vehicle & Green ped).
+
+5) The movement of vehicle from fx East to West
+   fx ready state yellow state.
+   The movement of pedestrian from fx North to South
+
+6) Chronology 
+   Vehicle POV : Green vehicle > Interrupt> Yellow Ready State > Red vehicle
+   Pedestrian POV : Red pedestrian > Interrupt> Yellow Ready State > Green pedestrian
+
+7) Try to create adaptive pedestrian traffic light to reduce waitg time for vehicle
+
+8) Steps:1) Create object pedestrian
+         2) Pedestrian will enter the queue array to indicates that there is pedestrian.
+         3) Interrupt masuk tanda pendestrian smpai
+         4)Calculate the no of pedestrian arrive (can also calculate the no of pedestrian que)
+         5) The period pedestrian traffic light will be executed will be measured based on how many pedestrian in queue array
+		If 1 queue, period would be 10s, If 2 queues period would be 15s    
+
+    			

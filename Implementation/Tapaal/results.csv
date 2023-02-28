@@ -1,0 +1,11 @@
+Model;Query;Result;Verification Time;Memory Usage;Discovered States;Explored States;Stored States;Query Property;Extra Tokens;Verification Method;Symmetry;Search Order;Approximation Method;Approximation Constant
+Real-timeTrafficLightSystem.tapn;Verify Deadlock Free;Satisfied;0.064 s;N/A;1397;428;428;AG !(deadlock);4;E: TAPAAL Discrete Engine Engine w. PTries;Yes;Breadth First Search;None;2
+Real-timeTrafficLightSystem.tapn;Verify Traffic Vehicle Model Green Mode;Satisfied;0.032 s;N/A;1;0;1;EF Vehicles_Traffic_Light.Green_TL = 1;4;E: TAPAAL Discrete Engine Engine w. PTries;Yes;Breadth First Search;None;2
+Real-timeTrafficLightSystem.tapn;Verify Traffic Vehicle Model Yellow Mode;Satisfied;0.036 s;N/A;4;2;3;EF Vehicles_Traffic_Light.Yellow_TL = 1;4;E: TAPAAL Discrete Engine Engine w. PTries;Yes;Breadth First Search;None;2
+Real-timeTrafficLightSystem.tapn;Verify Traffic Vehicle Model Red Mode;Satisfied;0.04 s;N/A;7;3;5;EF Vehicles_Traffic_Light.Red_TL = 1;4;E: TAPAAL Discrete Engine Engine w. PTries;Yes;Breadth First Search;None;2
+Real-timeTrafficLightSystem.tapn;Verify Traffic Pedestrian Model Green Mode;Satisfied;0.032 s;N/A;7;3;5;EF Pedestrians_Traffic_Light.Green_TL = 1;4;E: TAPAAL Discrete Engine Engine w. PTries;Yes;Breadth First Search;None;2
+Real-timeTrafficLightSystem.tapn;Verify Traffic Pedestrian Model Red Mode;Satisfied;0.032 s;N/A;3;1;2;EF Pedestrians_Traffic_Light.Red_TL = 1;4;E: TAPAAL Discrete Engine Engine w. PTries;Yes;Breadth First Search;None;2
+Real-timeTrafficLightSystem.tapn;Verify Traffic Pedestrian Model Button Mode;Satisfied;0.032 s;N/A;3;1;2;EF Pedestrians_Traffic_Light.Button = 1;4;E: TAPAAL Discrete Engine Engine w. PTries;Yes;Breadth First Search;None;2
+Real-timeTrafficLightSystem.tapn;Verify Traffic Pedestrian Model Ideal Button Mode;Satisfied;0.032 s;N/A;6;2;4;EF Pedestrians_Traffic_Light.Nobutton = 1;4;E: TAPAAL Discrete Engine Engine w. PTries;Yes;Breadth First Search;None;2
+Real-timeTrafficLightSystem.tapn;Verify  Button Model Value Input;Satisfied;0.032 s;N/A;3;1;2;EF Input_Button.Button_value = 1;4;E: TAPAAL Discrete Engine Engine w. PTries;Yes;Breadth First Search;None;2
+Real-timeTrafficLightSystem.tapn;Verify  Button Model No Value Input;Satisfied;0.04 s;N/A;1;0;1;EF Input_Button.Button_ideal = 1;4;E: TAPAAL Discrete Engine Engine w. PTries;Yes;Breadth First Search;None;2

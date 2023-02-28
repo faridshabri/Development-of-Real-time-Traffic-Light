@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-transition name="T0" player="0" urgent="false"/>
+  <shared-transition name="TriggerAction" player="0" urgent="true"/>
+  <shared-transition name="StayafterPush" player="0" urgent="true"/>
+  <shared-transition name="allowchange1" player="0" urgent="false"/>
+  <shared-transition name="T6" player="0" urgent="false"/>
+  <shared-transition name="T1" player="0" urgent="false"/>
+  <shared-transition name="allowchange2" player="0" urgent="false"/>
+  <shared-transition name="T7" player="0" urgent="false"/>
+  <shared-transition name="T8" player="0" urgent="false"/>
+  <shared-transition name="resetbutton" player="0" urgent="false"/>
+  <shared-transition name="T11" player="0" urgent="false"/>
+  <shared-transition name="backtoIdeal" player="0" urgent="false"/>
+  <shared-transition name="Ped_Come" player="0" urgent="false"/>
+  <net active="true" id="Input_Button" type="P/T net">
+    <place displayName="true" id="Button_value" initialMarking="0" invariant="&lt; inf" name="Button_value" nameOffsetX="41" nameOffsetY="58" positionX="345" positionY="225"/>
+    <place displayName="true" id="Button_ideal" initialMarking="0" invariant="&lt; inf" name="Button_ideal" nameOffsetX="47" nameOffsetY="68" positionX="660" positionY="225"/>
+    <place displayName="true" id="P0" initialMarking="1" invariant="&lt; inf" name="P0" nameOffsetX="0" nameOffsetY="0" positionX="660" positionY="150"/>
+    <transition angle="0" displayName="true" id="resetbutton" infiniteServer="false" name="resetbutton" nameOffsetX="0" nameOffsetY="0" player="0" positionX="495" positionY="180" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Ped_Come" infiniteServer="false" name="Ped_Come" nameOffsetX="0" nameOffsetY="0" player="0" positionX="495" positionY="270" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="backtoIdeal" infiniteServer="false" name="backtoIdeal" nameOffsetX="97" nameOffsetY="10" player="0" positionX="705" positionY="225" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T12" infiniteServer="false" name="T12" nameOffsetX="0" nameOffsetY="0" player="0" positionX="615" positionY="165" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Button_value" target="resetbutton" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="374" yCoord="235"/>
+      <arcpath arcPointType="false" id="1" xCoord="504" yCoord="195"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="resetbutton" target="Button_ideal" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="514" yCoord="195"/>
+      <arcpath arcPointType="false" id="1" xCoord="660" yCoord="235"/>
+    </arc>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Button_ideal" target="Ped_Come" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="660" yCoord="244"/>
+      <arcpath arcPointType="false" id="1" xCoord="514" yCoord="285"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Ped_Come" target="Button_value" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="504" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="374" yCoord="244"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Button_ideal" target="backtoIdeal" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="687" yCoord="231"/>
+      <arcpath arcPointType="false" id="1" xCoord="738" yCoord="195"/>
+      <arcpath arcPointType="false" id="2" xCoord="720" yCoord="225"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="backtoIdeal" target="Button_ideal" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="720" yCoord="255"/>
+      <arcpath arcPointType="false" id="1" xCoord="735" yCoord="305"/>
+      <arcpath arcPointType="false" id="2" xCoord="685" yCoord="251"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P0" target="T12" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="661" yCoord="171"/>
+      <arcpath arcPointType="false" id="1" xCoord="634" yCoord="183"/>
+    </arc>
+    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T12" target="Button_ideal" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="634" yCoord="189"/>
+      <arcpath arcPointType="false" id="1" xCoord="665" yCoord="228"/>
+    </arc>
+  </net>
+  <net active="true" id="Vehicles_Traffic_Light" type="P/T net">
+    <place displayName="true" id="Yellow_TL" initialMarking="0" invariant="&lt; inf" name="Yellow_TL" nameOffsetX="45" nameOffsetY="-12" positionX="510" positionY="150"/>
+    <place displayName="true" id="Red_TL" initialMarking="0" invariant="&lt; inf" name="Red_TL" nameOffsetX="70" nameOffsetY="18" positionX="690" positionY="270"/>
+    <place displayName="true" id="Green_TL" initialMarking="0" invariant="&lt; inf" name="Green_TL" nameOffsetX="-15" nameOffsetY="21" positionX="330" positionY="270"/>
+    <place displayName="true" id="P0" initialMarking="1" invariant="&lt; inf" name="P0" nameOffsetX="0" nameOffsetY="0" positionX="210" positionY="210"/>
+    <transition angle="0" displayName="true" id="TriggerAction" infiniteServer="false" name="TriggerAction" nameOffsetX="0" nameOffsetY="0" player="0" positionX="405" positionY="210" priority="0" urgent="true"/>
+    <transition angle="0" displayName="true" id="allowchange1" infiniteServer="false" name="allowchange1" nameOffsetX="2" nameOffsetY="33" player="0" positionX="600" positionY="210" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="allowchange2" infiniteServer="false" name="allowchange2" nameOffsetX="10" nameOffsetY="42" player="0" positionX="495" positionY="315" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="StayafterPush" infiniteServer="false" name="StayafterPush" nameOffsetX="0" nameOffsetY="0" player="0" positionX="285" positionY="330" priority="0" urgent="true"/>
+    <transition angle="0" displayName="true" id="T12" infiniteServer="false" name="T12" nameOffsetX="0" nameOffsetY="0" player="0" positionX="285" positionY="210" priority="0" urgent="false"/>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="45" nameOffsetY="-21" source="Yellow_TL" target="allowchange1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="537" yCoord="173"/>
+      <arcpath arcPointType="false" id="1" xCoord="609" yCoord="225"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="allowchange1" target="Red_TL" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="619" yCoord="225"/>
+      <arcpath arcPointType="false" id="1" xCoord="692" yCoord="276"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="allowchange2" target="Green_TL" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="504" yCoord="330"/>
+      <arcpath arcPointType="false" id="1" xCoord="359" yCoord="289"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="-14" nameOffsetY="-5" source="Green_TL" target="TriggerAction" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="356" yCoord="275"/>
+      <arcpath arcPointType="false" id="1" xCoord="414" yCoord="225"/>
+    </arc>
+    <arc id="A7" inscription="[0,inf)" nameOffsetX="-12" nameOffsetY="-1" source="Red_TL" target="allowchange2" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="690" yCoord="288"/>
+      <arcpath arcPointType="false" id="1" xCoord="514" yCoord="330"/>
+    </arc>
+    <arc id="A8" inscription="[0,inf)" nameOffsetX="32" nameOffsetY="20" source="Green_TL" target="StayafterPush" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="336" yCoord="297"/>
+      <arcpath arcPointType="false" id="1" xCoord="304" yCoord="345"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="StayafterPush" target="Green_TL" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="300" yCoord="330"/>
+      <arcpath arcPointType="false" id="1" xCoord="306" yCoord="329"/>
+      <arcpath arcPointType="false" id="2" xCoord="335" yCoord="296"/>
+    </arc>
+    <arc id="A10" inscription="1" nameOffsetX="0" nameOffsetY="0" source="TriggerAction" target="Yellow_TL" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="424" yCoord="225"/>
+      <arcpath arcPointType="false" id="1" xCoord="512" yCoord="172"/>
+    </arc>
+    <arc id="A11" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P0" target="T12" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="239" yCoord="223"/>
+      <arcpath arcPointType="false" id="1" xCoord="295" yCoord="220"/>
+    </arc>
+    <arc id="A12" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T12" target="Green_TL" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="304" yCoord="225"/>
+      <arcpath arcPointType="false" id="1" xCoord="336" yCoord="272"/>
+    </arc>
+  </net>
+  <net active="true" id="Pedestrians_Traffic_Light" type="P/T net">
+    <place displayName="true" id="Green_TL" initialMarking="0" invariant="&lt; inf" name="Green_TL" nameOffsetX="45" nameOffsetY="-12" positionX="495" positionY="135"/>
+    <place displayName="true" id="Red_TL" initialMarking="0" invariant="&lt; inf" name="Red_TL" nameOffsetX="70" nameOffsetY="18" positionX="690" positionY="270"/>
+    <place displayName="true" id="Button" initialMarking="0" invariant="&lt; inf" name="Button" nameOffsetX="-3" nameOffsetY="-2" positionX="330" positionY="270"/>
+    <place displayName="true" id="Nobutton" initialMarking="0" invariant="&lt; inf" name="Nobutton" nameOffsetX="0" nameOffsetY="0" positionX="510" positionY="420"/>
+    <place displayName="true" id="P0" initialMarking="2" invariant="&lt; inf" name="P0" nameOffsetX="0" nameOffsetY="0" positionX="825" positionY="255"/>
+    <transition angle="0" displayName="true" id="Ped_Come" infiniteServer="false" name="Ped_Come" nameOffsetX="4" nameOffsetY="-25" player="0" positionX="495" positionY="315" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="StayafterPush" infiniteServer="false" name="StayafterPush" nameOffsetX="36" nameOffsetY="49" player="0" positionX="735" positionY="330" priority="0" urgent="true"/>
+    <transition angle="0" displayName="true" id="TriggerAction" infiniteServer="false" name="TriggerAction" nameOffsetX="0" nameOffsetY="0" player="0" positionX="300" positionY="315" priority="0" urgent="true"/>
+    <transition angle="0" displayName="true" id="allowchange2" infiniteServer="false" name="allowchange2" nameOffsetX="0" nameOffsetY="0" player="0" positionX="600" positionY="195" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="allowchange1" infiniteServer="false" name="allowchange1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="750" positionY="150" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="resetbutton" infiniteServer="false" name="resetbutton" nameOffsetX="-2" nameOffsetY="12" player="0" positionX="435" positionY="405" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="backtoIdeal" infiniteServer="false" name="backtoIdeal" nameOffsetX="0" nameOffsetY="0" player="0" positionX="600" positionY="390" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T12" infiniteServer="false" name="T12" nameOffsetX="0" nameOffsetY="0" player="0" positionX="765" positionY="240" priority="0" urgent="false"/>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Ped_Come" target="Button" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="504" yCoord="330"/>
+      <arcpath arcPointType="false" id="1" xCoord="359" yCoord="289"/>
+    </arc>
+    <arc id="A7" inscription="[0,inf)" nameOffsetX="-2" nameOffsetY="-16" source="Red_TL" target="Ped_Come" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="690" yCoord="288"/>
+      <arcpath arcPointType="false" id="1" xCoord="514" yCoord="330"/>
+    </arc>
+    <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Red_TL" target="StayafterPush" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="713" yCoord="297"/>
+      <arcpath arcPointType="false" id="1" xCoord="744" yCoord="345"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="StayafterPush" target="Red_TL" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="754" yCoord="345"/>
+      <arcpath arcPointType="false" id="1" xCoord="822" yCoord="319"/>
+      <arcpath arcPointType="false" id="2" xCoord="719" yCoord="289"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Button" target="TriggerAction" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="337" yCoord="297"/>
+      <arcpath arcPointType="false" id="1" xCoord="320" yCoord="325"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="TriggerAction" target="Button" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="319" yCoord="335"/>
+      <arcpath arcPointType="false" id="1" xCoord="338" yCoord="298"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Green_TL" target="allowchange2" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="522" yCoord="157"/>
+      <arcpath arcPointType="false" id="1" xCoord="609" yCoord="210"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="allowchange2" target="Red_TL" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="619" yCoord="210"/>
+      <arcpath arcPointType="false" id="1" xCoord="693" yCoord="275"/>
+    </arc>
+    <arc id="A14" inscription="[0,0]" nameOffsetX="0" nameOffsetY="0" source="Red_TL" target="allowchange1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="712" yCoord="271"/>
+      <arcpath arcPointType="false" id="1" xCoord="765" yCoord="180"/>
+    </arc>
+    <arc id="A15" inscription="1" nameOffsetX="0" nameOffsetY="0" source="allowchange1" target="Green_TL" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="759" yCoord="165"/>
+      <arcpath arcPointType="false" id="1" xCoord="524" yCoord="150"/>
+    </arc>
+    <arc id="A16" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Button" target="resetbutton" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="353" yCoord="297"/>
+      <arcpath arcPointType="false" id="1" xCoord="444" yCoord="420"/>
+    </arc>
+    <arc id="A17" inscription="1" nameOffsetX="0" nameOffsetY="0" source="resetbutton" target="Nobutton" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="454" yCoord="420"/>
+      <arcpath arcPointType="false" id="1" xCoord="510" yCoord="431"/>
+    </arc>
+    <arc id="A18" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Nobutton" target="backtoIdeal" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="539" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="609" yCoord="405"/>
+    </arc>
+    <arc id="A19" inscription="1" nameOffsetX="0" nameOffsetY="0" source="backtoIdeal" target="Red_TL" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="619" yCoord="405"/>
+      <arcpath arcPointType="false" id="1" xCoord="696" yCoord="297"/>
+    </arc>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P0" target="T12" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="825" yCoord="264"/>
+      <arcpath arcPointType="false" id="1" xCoord="785" yCoord="250"/>
+    </arc>
+    <arc id="A21" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T12" target="Red_TL" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="774" yCoord="255"/>
+      <arcpath arcPointType="false" id="1" xCoord="718" yCoord="279"/>
+    </arc>
+  </net>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Verify Traffic Vehicle Model Green Mode" overApproximation="false" pTrie="true" query="EF Vehicles_Traffic_Light.Green_TL = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Verify Traffic Vehicle Model Yellow Mode" overApproximation="false" pTrie="true" query="EF Vehicles_Traffic_Light.Yellow_TL = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Verify Traffic Vehicle Model Red Mode" overApproximation="false" pTrie="true" query="EF Vehicles_Traffic_Light.Red_TL = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Verify Traffic Pedestrian Model Green Mode" overApproximation="false" pTrie="true" query="EF Pedestrians_Traffic_Light.Green_TL = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="true" hashTableSize="null" inclusionPlaces="*NONE*" name="Verify Traffic Pedestrian Model Red Mode" overApproximation="false" pTrie="true" query="EF Pedestrians_Traffic_Light.Red_TL = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Verify Traffic Pedestrian Model Button Mode" overApproximation="false" pTrie="true" query="EF Pedestrians_Traffic_Light.Button = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Verify Traffic Pedestrian Model Ideal Button Mode" overApproximation="false" pTrie="true" query="EF Pedestrians_Traffic_Light.Nobutton = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="false" hashTableSize="null" inclusionPlaces="*NONE*" name="Verify Deadlock Free" overApproximation="false" pTrie="true" query="AG !(deadlock)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Verify  Button Model Value Input" overApproximation="false" pTrie="true" query="EF Input_Button.Button_value = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Verify  Button Model No Value Input" overApproximation="false" pTrie="true" query="EF Input_Button.Button_ideal = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>
